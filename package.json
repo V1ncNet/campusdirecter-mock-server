@@ -4,7 +4,10 @@
   "description": "",
   "main": "src/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p .",
+    "start": "node dist/index.js",
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,22 @@
   "bugs": {
     "url": "https://github.com/V1ncNet/campusdirecter-mock-server/issues"
   },
-  "homepage": "https://github.com/V1ncNet/campusdirecter-mock-server#readme"
+  "homepage": "https://github.com/V1ncNet/campusdirecter-mock-server#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.18",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.5.0"
+  },
+  "private": true,
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "js, ts",
+    "ignore": [
+      "src/r/",
+      "src/**/*.spec.ts"
+    ],
+    "exec": "ts-node ./src/index.ts"
+  }
 }
