@@ -1,5 +1,6 @@
 import express, { Application, RequestHandler } from 'express';
 import http from 'http';
+import { Router } from '../lib/web';
 
 export default class Server {
 
@@ -7,16 +8,19 @@ export default class Server {
     private readonly _server: http.Server;
     private readonly _middleware: RequestHandler[];
     private _port: number | string;
+    private _router: Router;
 
-    constructor() {
+    constructor(router: Router = Router.noop()) {
         this._app = express();
         this._server = http.createServer(this._app);
         this._middleware = [];
         this._port = process.env.SERVER_PORT || 3000;
+        this._router = router;
     }
 
     public static async create(): Promise<Server> {
-        return new Server();
+        const router = await Router.create();
+        return new Server(router);
     }
 
     public get app(): Application {
@@ -34,6 +38,7 @@ export default class Server {
 
     private route(): void {
         this._app.use(this._middleware);
+        this._router.route(this._app);
     }
 
     private listen(): void {
