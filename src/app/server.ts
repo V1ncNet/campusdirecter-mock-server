@@ -41,4 +41,12 @@ export default class Server {
             console.log(`Express started on port ${this._port} 🚀`);
         });
     }
+
+    public shutdown(signal: string, value: number): void {
+        this._server.close(() => {
+            console.debug(` Trapped signal ${signal}`);
+            console.log('Server is shutting down. Bye 👋');
+            process.exit(128 + value);
+        });
+    }
 }

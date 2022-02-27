@@ -4,6 +4,11 @@ import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
 
+const signals: { [key: string]: number } = {
+    'SIGINT': 2,
+    'SIGTERM': 15
+}
+
 Server.create().then(server => {
     server.app.set('json spaces', 2);
     server.use(express.json());
@@ -19,4 +24,10 @@ Server.create().then(server => {
     }
 
     server.start();
+
+    Object.keys(signals).forEach(signal => {
+        process.on(signal, () => {
+            server.shutdown(signal, signals[signal]);
+        })
+    })
 });
