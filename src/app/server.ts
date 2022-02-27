@@ -1,6 +1,7 @@
-import express, { Application, RequestHandler } from 'express';
+import express, { Application, NextFunction, Request, RequestHandler, Response } from 'express';
 import http from 'http';
 import { Router } from '../lib/web';
+import { DefaultErrorAttributes, HttpError, InternalServerError, NotFoundError } from '../lib/http';
 
 export default class Server {
 
@@ -39,6 +40,9 @@ export default class Server {
     private route(): void {
         this._app.use(this._middleware);
         this._router.route(this._app);
+
+        this._app.use(this.notFound);
+        this._app.use(this.errorHandler);
     }
 
     private listen(): void {
@@ -53,5 +57,23 @@ export default class Server {
             console.log('Server is shutting down. Bye 👋');
             process.exit(128 + value);
         });
+    }
+
+    private notFound(req: Request, res: Response, next: NextFunction) {
+        if (res.status(404)) {
+            return next(new NotFoundError(`Cannot ${req.method} ${req.path}`, req));
+        }
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    private errorHandler(err: Error | HttpError, req: Request, res: Response, next: NextFunction) {
+        if ('status' in err) {
+            return res.status(err.status).json(DefaultErrorAttributes.from(err));
+        } else {
+            // noop
+        }
+
+        const httpError = new InternalServerError(err, req);
+        return res.status(httpError.status).json(DefaultErrorAttributes.from(httpError));
     }
 }
