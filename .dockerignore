@@ -1,0 +1,21 @@
+### Git ###
+.git/
+.gitignore
+
+### JetBrains ###
+.idea/
+
+### VS Code ###
+.vscode/
+.history/
+
+### Node ###
+logs/
+node_modules/
+*.tsbuildinfo
+.eslintcache
+
+### Project ###
+dist/
+.editorconfig
+README.md
