@@ -12,7 +12,7 @@ export abstract class HttpError implements Error, ErrorAttributes {
   protected constructor(error: Error | string, req?: Request) {
     if (error instanceof Error) {
       this.name = error.name;
-      this.message = error.name;
+      this.message = error.message;
     } else {
       this.message = error;
     }
