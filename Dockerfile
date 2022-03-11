@@ -27,9 +27,11 @@ RUN npm install --silent \
  && npm cache clean --force
 
 COPY --from=application-builder /usr/src/app/dist          ./dist
+COPY ./data                                                ./data
 
 ARG PORT=3000
 ENV PORT=$PORT
 
+VOLUME [ "/opt/server/data" ]
 EXPOSE ${PORT}
 CMD [ "node", "dist/index.js" ]

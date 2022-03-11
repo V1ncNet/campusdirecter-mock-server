@@ -35,9 +35,10 @@
   "private": true,
   "nodemonConfig": {
     "watch": [
-      "src"
+      "src",
+      "data"
     ],
-    "ext": "js, ts",
+    "ext": "js, ts, json",
     "ignore": [
       "src/**/*.spec.ts"
     ],
