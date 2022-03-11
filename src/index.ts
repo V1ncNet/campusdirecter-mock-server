@@ -3,6 +3,9 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
+import { FileStudentRepository } from './app/student/infrastructure';
+
+export const studentRepository = new FileStudentRepository();
 
 const signals: { [key: string]: number } = {
   SIGINT: 2,
