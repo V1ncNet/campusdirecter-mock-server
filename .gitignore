@@ -17,5 +17,3 @@ node_modules/
 dist/*
 !dist/r/
 /config.json
-storage/*
-!storage/.gitkeep
