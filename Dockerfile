@@ -32,6 +32,9 @@ COPY ./data                                                ./data
 ARG PORT=3000
 ENV PORT=$PORT
 
+HEALTHCHECK --interval=12s --timeout=12s --start-period=30s \
+  CMD ["node", "dist/healthcheck.js"]
+
 VOLUME [ "/opt/server/data" ]
 EXPOSE ${PORT}
 CMD [ "node", "dist/index.js" ]
