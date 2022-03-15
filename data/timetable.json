@@ -16,7 +16,120 @@
           "attempts": []
         }
       },
-      "lecturs": []
+      "lecturs": [
+        {
+          "summary": "PROMA",
+          "lecturer": {
+            "id": "kuno.schwegelmilch@example.com",
+            "name": {
+              "salutation": "Dr.",
+              "firstName": "Kuno",
+              "lastName": "Schwegelmilch"
+            }
+          },
+          "interval": {
+            "start": "2022-04-28T07:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://zoom.us/1337"
+        },
+        {
+          "summary": "PROMA",
+          "lecturer": {
+            "id": "kuno.schwegelmilch@example.com",
+            "name": {
+              "salutation": "Dr.",
+              "firstName": "Kuno",
+              "lastName": "Schwegelmilch"
+            }
+          },
+          "interval": {
+            "start": "2022-04-28T09:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://zoom.us/1337"
+        },
+        {
+          "summary": "PROMA",
+          "lecturer": {
+            "id": "kuno.schwegelmilch@example.com",
+            "name": {
+              "salutation": "Dr.",
+              "firstName": "Kuno",
+              "lastName": "Schwegelmilch"
+            }
+          },
+          "interval": {
+            "start": "2022-04-28T11:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://zoom.us/1337"
+        },
+        {
+          "summary": "ABWL Finanzierung",
+          "lecturer": {
+            "id": "jens.schwegelmilch@example.com",
+            "name": {
+              "salutation": null,
+              "firstName": "Jens",
+              "lastName": "Schwegelmilch"
+            }
+          },
+          "interval": {
+            "start": "2022-04-28T15:30:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "4.20"
+        },
+        {
+          "summary": "ABWL Finanzierung",
+          "lecturer": {
+            "id": "jens.schwegelmilch@example.com",
+            "name": {
+              "salutation": null,
+              "firstName": "Jens",
+              "lastName": "Schwegelmilch"
+            }
+          },
+          "interval": {
+            "start": "2022-04-28T17:15:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "4.20"
+        },
+        {
+          "summary": "ABWL Marketing",
+          "lecturer": {
+            "id": "maria.schwegelmilch@example.com",
+            "name": {
+              "salutation": "Prof. Dr.",
+              "firstName": "Maria",
+              "lastName": "Schwegelmilch"
+            }
+          },
+          "interval": {
+            "start": "2022-04-29T13:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://zoom.us/69"
+        },
+        {
+          "summary": "ABWL Marketing",
+          "lecturer": {
+            "id": "maria.schwegelmilch@example.com",
+            "name": {
+              "salutation": "Prof. Dr.",
+              "firstName": "Maria",
+              "lastName": "Schwegelmilch"
+            }
+          },
+          "interval": {
+            "start": "2022-04-29T15:30:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://zoom.us/69"
+        }
+      ]
     }
   ]
 }
