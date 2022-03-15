@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { BadRequest, NotFoundError } from '../../../lib/http';
+import { NotFoundError } from '../../../lib/http';
 import { Controller } from '../../../lib/web';
 import { controller, get } from '../../../lib/web/bind/annotations';
 import { timetableRepository } from '../../../index';
@@ -8,9 +8,9 @@ import { timetableRepository } from '../../../index';
 export default class TimetableController extends Controller {
   @get('')
   get(req: Request, res: Response) {
-    const studentId = String(req.query.studentId);
+    let studentId = String(req.query.studentId);
     if (typeof req.query.studentId !== 'string' || !studentId) {
-      throw new BadRequest("Required parameter 'studentId' is not present", req);
+      studentId = '0815421337420';
     }
 
     const timetable = timetableRepository.retrieve(studentId);

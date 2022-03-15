@@ -7,6 +7,11 @@ import { Student, StudentId } from '../model/student';
 
 @controller('/student')
 export default class StudentController extends Controller {
+  @get('/')
+  getDefault(req: Request, res: Response) {
+    return res.redirect(req.url + '/0815421337420');
+  }
+
   @get('/:id')
   get(req: Request, res: Response) {
     const id: StudentId = String(req.params.id);
