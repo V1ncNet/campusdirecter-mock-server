@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { NotFoundError } from '../../../lib/http';
+import { BadRequest, NotFoundError } from '../../../lib/http';
 import { Controller } from '../../../lib/web';
 import { controller, get } from '../../../lib/web/bind/annotations';
 import { timetableRepository } from '../../../index';
@@ -8,9 +8,10 @@ import { timetableRepository } from '../../../index';
 export default class TimetableController extends Controller {
   @get('')
   get(req: Request, res: Response) {
-    let studentId = String(req.query.studentId);
+    const studentId = String(req.query.studentId);
     if (typeof req.query.studentId !== 'string' || !studentId) {
-      studentId = '0815421337420';
+      return res.redirect(req.url + '?studentId=0815421337420');
+      throw new BadRequest("Required parameter 'studentId' is not present", req);
     }
 
     const timetable = timetableRepository.retrieve(studentId);
