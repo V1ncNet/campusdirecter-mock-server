@@ -5,6 +5,7 @@ import { BadRequest } from '../../../lib/http';
 import { Controller } from '../../../lib/web';
 import { controller, post } from '../../../lib/web/bind/annotations';
 import { UserDetails } from '../model';
+import { JWT_SECRET } from '../app';
 
 @controller('/login')
 export default class LoginController extends Controller {
@@ -30,7 +31,7 @@ export default class LoginController extends Controller {
   static generateToken(user: UserDetails): string {
     const data = { username: user.username };
 
-    const signature = '7up3rs3cr37';
+    const signature = JWT_SECRET;
     const expiresIn = '6h';
 
     const token = sign({ data }, signature, { expiresIn });
