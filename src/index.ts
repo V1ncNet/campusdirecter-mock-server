@@ -5,9 +5,11 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { FileStudentRepository } from './app/student/infrastructure';
 import { FileTimetableRepository } from './app/timetable/infrastructure';
+import { DummyUserRepository } from './app/security/support';
 
 export const studentRepository = new FileStudentRepository();
 export const timetableRepository = new FileTimetableRepository();
+export const userRepository = new DummyUserRepository();
 
 const signals: { [key: string]: number } = {
   SIGINT: 2,
