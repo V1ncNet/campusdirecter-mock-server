@@ -1,0 +1,78 @@
+= CampusDirecter Mock-Server API Handbuch
+Vincent Nadoll <s3003870@ba-sachsen.de>;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[[overview]]
+= Einleitung
+
+Willkommen zum API-Handbuch des Campusdirecter Mock-Server von 4Team.
+
+Mit diesem Service können Studierende auf relevante Informationen, wie ihren Stundenplan, auf einfache und
+programmatische Weise mithilfe herkömmlicher HTTP-Anfragen verwaltet werden. Die Endpoints sind intuitiv und
+leistungsstark, sodass problemlos Requests gemacht werden können, um Informationen abzurufen oder Aktionen auszuführen.
+
+Die API-Dokumentation beginnt mit einem allgemeinen Überblick über das implementierte Design und die implementierte
+Technologie, gefolgt von Referenzinformationen zu bestimmten Endpunkten.
+
+
+[[requests]]
+== Anfragen
+
+Jedes Tool, das HTTP beherrscht, kann mit der API kommunizieren, indem es einfach die richtigen URL anfordert. Anfragen
+sollten unter Verwendung des HTTPS-Protokolls gestellt werden, damit der Verkehr verschlüsselt wird. Die Schnittstelle
+reagiert je nach erforderlicher Aktion auf unterschiedliche Methoden.
+
+Dieser Dienst versucht, bei der Verwendung von HTTP-Verben die Standard-HTTP- und REST-Konventionen so genau wie möglich
+einzuhalten.
+
+|===
+| Verb | Verwendung
+
+| `GET`
+| Wird zum Abrufen einer Ressource verwendet. Die angeforderten Informationen werden als JSON-Objekt zurückgegeben.
+
+| `POST`
+| Wird verwendet, um Daten an den Server zu senden. Der Typ des Request-Body wird durch den `Content-Type`-Header
+angegeben.
+
+Die vom JSON-Objekt definierten Attribute können verwendet werden, um zusätzliche Anforderungen zu bilden. Jede
+Anfrage, die die `GET`-Methode verwendet, ist schreibgeschützt und wirkt sich nicht auf die abgefragten Objekte aus.
+|===
+
+
+[[http-statuses]]
+== HTTP Status
+
+Neben den HTTP-Methoden, auf welche die API reagiert, werden auch Standard-HTTP-Status einschließlich Fehlercodes
+zurückgegeben. Im Falle eines Problems enthält der Status den Fehlercode, während der Hauptteil der Antwort
+normalerweise zusätzliche Informationen zu dem aufgetretenen Problem enthält. Wird ein Status im 500er-Bereich
+zurückgesendet, weist dies im Allgemeinen auf ein serverseitiges Problem hin. Dies bedeutet, dass der Dienst ein Problem
+hat und die Anfrage derzeit nicht erfüllen kann. Aus Sicherheitsgründen enthält ein 500er-Fehler keine aussagekräftige
+Beschreibung des Problems.
+
+Dieser Dienst versucht, die Standardkonventionen für HTTP und REST bei der Verwendung des HTTP-Statuscodes so genau wie
+möglich einzuhalten.
+
+|===
+| Status Code | Bedeutung
+
+| `200 OK`
+| Der Request war erfolgreich.
+
+| `400 Bad Request`
+| Der Request (-Body) war fehlerhaft. Der Response Body enthält einen Fehler, der weitere Informationen bereitstellt.
+
+| `401 Unauthorized`
+| Der Client ist nicht authentifiziert und darf nicht auf Ressource zuzugreifen.
+
+| `404 Not Found`
+| Die angeforderte Ressource existiert nicht.
+
+| `500 Internal Server Error`
+| Bei der Verbeitung der Anfrage ist ein Fehler aufgetreten, der nicht durch den Inhalt der Anfrage verusacht wurde.
+|===

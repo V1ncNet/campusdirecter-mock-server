@@ -11,7 +11,8 @@ ENV NODE_ENV=$NODE_ENV
 
 COPY . ./
 
-RUN npm run build
+RUN npm run build \
+ && npm run build:docs
 
 
 FROM node:lts-alpine AS server-builder
