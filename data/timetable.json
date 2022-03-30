@@ -20,15 +20,15 @@
         {
           "summary": "PROMA",
           "lecturer": {
-            "id": "kuno.schwegelmilch@example.com",
+            "id": "f7dc050b-c72d-43b8-b931-cc85b431b5f9",
             "name": {
-              "salutation": "Dr.",
-              "firstName": "Kuno",
-              "lastName": "Schwegelmilch"
+              "salutation": null,
+              "firstName": "Sigmund",
+              "lastName": "Rudi"
             }
           },
           "interval": {
-            "start": "2022-04-28T07:45:00.000+01:00[Europe/Berlin]",
+            "start": "2022-04-25T07:45:00.000+01:00[Europe/Berlin]",
             "duration": "90m"
           },
           "location": "https://zoom.us/1337"
@@ -36,15 +36,15 @@
         {
           "summary": "PROMA",
           "lecturer": {
-            "id": "kuno.schwegelmilch@example.com",
+            "id": "f7dc050b-c72d-43b8-b931-cc85b431b5f9",
             "name": {
-              "salutation": "Dr.",
-              "firstName": "Kuno",
-              "lastName": "Schwegelmilch"
+              "salutation": null,
+              "firstName": "Sigmund",
+              "lastName": "Rudi"
             }
           },
           "interval": {
-            "start": "2022-04-28T09:45:00.000+01:00[Europe/Berlin]",
+            "start": "2022-04-25T09:45:00.000+01:00[Europe/Berlin]",
             "duration": "90m"
           },
           "location": "https://zoom.us/1337"
@@ -52,82 +52,200 @@
         {
           "summary": "PROMA",
           "lecturer": {
-            "id": "kuno.schwegelmilch@example.com",
+            "id": "f7dc050b-c72d-43b8-b931-cc85b431b5f9",
             "name": {
-              "salutation": "Dr.",
-              "firstName": "Kuno",
-              "lastName": "Schwegelmilch"
+              "salutation": null,
+              "firstName": "Sigmund",
+              "lastName": "Rudi"
             }
           },
           "interval": {
-            "start": "2022-04-28T11:45:00.000+01:00[Europe/Berlin]",
+            "start": "2022-04-25T11:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://zoom.us/1337"
+        },
+
+        {
+          "summary": "ABWL Marketing",
+          "lecturer": {
+            "id": "f12fb329-e640-4c69-abc3-518aa07350cb",
+            "name": {
+              "salutation": "Dr.",
+              "firstName": "Henrik",
+              "lastName": "Roddy"
+            }
+          },
+          "interval": {
+            "start": "2022-04-26T07:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "4.20"
+        },
+        {
+          "summary": "ABWL Marketing",
+          "lecturer": {
+            "id": "f12fb329-e640-4c69-abc3-518aa07350cb",
+            "name": {
+              "salutation": "Dr.",
+              "firstName": "Henrik",
+              "lastName": "Roddy"
+            }
+          },
+          "interval": {
+            "start": "2022-04-26T09:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "4.20"
+        },
+
+        {
+          "summary": "MCIIV Gr.1",
+          "lecturer": {
+            "id": "1f35e4c1-6a27-4e6b-b2d8-57625b88e66b",
+            "name": {
+              "salutation": null,
+              "firstName": "Kai",
+              "lastName": "Ernestus"
+            }
+          },
+          "interval": {
+            "start": "2022-04-26T13:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://twitch.tv/42"
+        },
+        {
+          "summary": "MCIIV Gr.1",
+          "lecturer": {
+            "id": "1f35e4c1-6a27-4e6b-b2d8-57625b88e66b",
+            "name": {
+              "salutation": null,
+              "firstName": "Kai",
+              "lastName": "Ernestus"
+            }
+          },
+          "interval": {
+            "start": "2022-04-26T15:30:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://twitch.tv/42"
+        },
+
+        {
+          "summary": "ABWL BWL",
+          "lecturer": {
+            "id": "15200d8d-42a8-4343-a7e7-de3b0e379491",
+            "name": {
+              "salutation": "Prof. Dr.",
+              "firstName": "Elke",
+              "lastName": "Rochele"
+            }
+          },
+          "interval": {
+            "start": "2022-04-27T07:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://zoom.us/69"
+        },
+        {
+          "summary": "ABWL BWL",
+          "lecturer": {
+            "id": "15200d8d-42a8-4343-a7e7-de3b0e379491",
+            "name": {
+              "salutation": "Prof. Dr.",
+              "firstName": "Elke",
+              "lastName": "Rochele"
+            }
+          },
+          "interval": {
+            "start": "2022-04-27T09:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://zoom.us/69"
+        },
+
+        {
+          "summary": "ABWL Marketing",
+          "lecturer": {
+            "id": "f12fb329-e640-4c69-abc3-518aa07350cb",
+            "name": {
+              "salutation": "Dr.",
+              "firstName": "Henrik",
+              "lastName": "Roddy"
+            }
+          },
+          "interval": {
+            "start": "2022-04-27T11:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "4.20"
+        },
+        {
+          "summary": "ABWL Marketing",
+          "lecturer": {
+            "id": "f12fb329-e640-4c69-abc3-518aa07350cb",
+            "name": {
+              "salutation": "Dr.",
+              "firstName": "Henrik",
+              "lastName": "Roddy"
+            }
+          },
+          "interval": {
+            "start": "2022-04-27T13:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "4.20"
+        },
+
+        {
+          "summary": "PROMA",
+          "lecturer": {
+            "id": "f7dc050b-c72d-43b8-b931-cc85b431b5f9",
+            "name": {
+              "salutation": null,
+              "firstName": "Sigmund",
+              "lastName": "Rudi"
+            }
+          },
+          "interval": {
+            "start": "2022-04-29T07:45:00.000+01:00[Europe/Berlin]",
             "duration": "90m"
           },
           "location": "https://zoom.us/1337"
         },
         {
-          "summary": "ABWL Finanzierung",
+          "summary": "PROMA",
           "lecturer": {
-            "id": "jens.schwegelmilch@example.com",
+            "id": "f7dc050b-c72d-43b8-b931-cc85b431b5f9",
             "name": {
               "salutation": null,
-              "firstName": "Jens",
-              "lastName": "Schwegelmilch"
+              "firstName": "Sigmund",
+              "lastName": "Rudi"
             }
           },
           "interval": {
-            "start": "2022-04-28T15:30:00.000+01:00[Europe/Berlin]",
+            "start": "2022-04-29T09:45:00.000+01:00[Europe/Berlin]",
             "duration": "90m"
           },
-          "location": "4.20"
+          "location": "https://zoom.us/1337"
         },
+
         {
-          "summary": "ABWL Finanzierung",
+          "summary": "MCIIV",
           "lecturer": {
-            "id": "jens.schwegelmilch@example.com",
+            "id": "9ece1c81-6300-4da5-a636-daf73d6c0a3e",
             "name": {
-              "salutation": null,
-              "firstName": "Jens",
-              "lastName": "Schwegelmilch"
+              "salutation": "Dr.",
+              "firstName": "Fermina",
+              "lastName": "Ottiline"
             }
           },
           "interval": {
-            "start": "2022-04-28T17:15:00.000+01:00[Europe/Berlin]",
+            "start": "2022-04-29T11:45:00.000+01:00[Europe/Berlin]",
             "duration": "90m"
           },
-          "location": "4.20"
-        },
-        {
-          "summary": "ABWL Marketing",
-          "lecturer": {
-            "id": "maria.schwegelmilch@example.com",
-            "name": {
-              "salutation": "Prof. Dr.",
-              "firstName": "Maria",
-              "lastName": "Schwegelmilch"
-            }
-          },
-          "interval": {
-            "start": "2022-04-29T13:45:00.000+01:00[Europe/Berlin]",
-            "duration": "90m"
-          },
-          "location": "https://zoom.us/69"
-        },
-        {
-          "summary": "ABWL Marketing",
-          "lecturer": {
-            "id": "maria.schwegelmilch@example.com",
-            "name": {
-              "salutation": "Prof. Dr.",
-              "firstName": "Maria",
-              "lastName": "Schwegelmilch"
-            }
-          },
-          "interval": {
-            "start": "2022-04-29T15:30:00.000+01:00[Europe/Berlin]",
-            "duration": "90m"
-          },
-          "location": "https://zoom.us/69"
+          "location": "https://zoom.us/12"
         }
       ]
     }
