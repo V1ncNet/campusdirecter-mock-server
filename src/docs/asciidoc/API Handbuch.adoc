@@ -1,10 +1,14 @@
-= CampusDirecter Mock-Server API Handbuch
-Vincent Nadoll <s3003870@ba-sachsen.de>;
+= API Handbuch
+= noop
+CampusDirecter Mock-Server
+:author: Vincent Nadoll <s3003870@ba-sachsen.de>
+:lang: de
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
 :toc: left
 :toclevels: 5
+:toc-title: Inhaltsverzeichnis
 :sectlinks:
 :snippets: ./snippets
 
