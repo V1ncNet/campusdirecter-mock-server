@@ -1,0 +1,8 @@
+|===
+|Pfad|Typ|Beschreibung
+
+|`+$.username+`
+|`+String+`
+|Der Nutzername des authentifizierten Nutzers
+
+|===

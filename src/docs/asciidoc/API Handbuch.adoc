@@ -92,7 +92,7 @@ authentifiziert. Der Server erzeugt einen Token und übergibt diesen an den Clie
 [[auth-login]]
 == Login
 
-Alle Ressourcen sind so gesichert, dass nur authentifizierte Akteure auf diese zugreifen können. Die
+Alle <<resources,Ressourcen>> sind so gesichert, dass nur authentifizierte Akteure auf diese zugreifen können. Die
 einzige Ausnahme bildet dabei der Login-Endpunkt.
 
 Der Login-Endpunkt empfängt und verarbeitet Nutername und Passwort. Bei erfolgreichem Login, wird dem Client ein Token
@@ -123,3 +123,42 @@ include::{snippets}/security/login/response-headers.adoc[]
 ==== Response Body
 
 include::{snippets}/security/login/response-body.adoc[]
+
+[[resources]]
+= Ressourcen
+
+"`Eine Ressource ist alles, was wichtig genug ist, um als eigenständige Sache referenziert zu werden.`"<<RR07,[RR07, Kap. 4, Abs. What’s a Resource?]>>
+
+[[resources-account]]
+== Nutzerkonto
+
+Liefert Informationen zu aktuellen Nutzerkonto.
+
+[[resources-account-retrieve]]
+=== Nutzerinformationen abrufen
+
+Im Informationen über den aktuell authentifizierten Client abzufragen, wird der Endpunkt `/me` mittels eines
+`GET`-Requests abgefragt. Dieser liefert ein JSON-Objekt mit den folgenden Attributen.
+
+include::{snippets}/security/me/response-fields.adoc[]
+
+==== cURL Beispiel
+
+include::{snippets}/security/me/curl-request.adoc[]
+
+==== Request Headers
+
+include::{snippets}/security/me/request-headers.adoc[]
+
+==== Response Headers
+
+include::{snippets}/security/me/response-headers.adoc[]
+
+==== Response Body
+
+include::{snippets}/security/me/response-body.adoc[]
+
+[bibliography]
+= Referenzen
+
+* [[[RR07]]] Richardson, L. ; Ruby, S.: __RESTful Web Services by Leonard Richardson__. O'Reilly & Associates, 2007. - ISBN 978-0596529260
