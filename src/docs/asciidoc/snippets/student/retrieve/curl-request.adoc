@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ curl -X GET 'http://localhost:3000/student' \
+ -H 'Authorization: Bearer $CAMPUSDIRECTER_TOKEN'
+----

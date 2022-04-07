@@ -159,6 +159,41 @@ include::{snippets}/security/me/response-headers.adoc[]
 
 include::{snippets}/security/me/response-body.adoc[]
 
+
+[[resources-student]]
+== Studierende
+
+Studierende sind all jene, die diesen Service verwenden werden. Die Endpunkte liefern studienrelevante Informationen,
+anhand derer Studierende ihre Daten einsehen können. Darunter auch die solche, die den Fortschritt der StudentIn
+anzeigen.
+
+[[resources-student-retrieve]]
+=== Eigene Informationen abrufen
+
+Studierende können ihre sudienrelevanten Informationen abrufen, indem sie den Endpunkt `/student` mit der HTTP Methode
+`GET` abragen.
+
+Zurückgeliefert wird eine JSON-Objekt, welches die folgenden Attribute enthält:
+
+include::{snippets}/student/retrieve/response-fields.adoc[]
+
+==== cURL Beispiel
+
+include::{snippets}/student/retrieve/curl-request.adoc[]
+
+==== Request Headers
+
+include::{snippets}/student/retrieve/request-headers.adoc[]
+
+==== Response Headers
+
+include::{snippets}/student/retrieve/response-headers.adoc[]
+
+==== Response Body
+
+include::{snippets}/student/retrieve/response-body.adoc[]
+
+
 [bibliography]
 = Referenzen
 

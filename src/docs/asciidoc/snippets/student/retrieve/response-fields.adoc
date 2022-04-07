@@ -1,0 +1,40 @@
+|===
+|Pfad|Typ|Beschreibung
+
+|`+$.id+`
+|`+String+`
+|Primäre ID der StudentIn. Dieser Wert ist einzigartig.
+
+|`+$.name+`
+|`+Objekt+`
+|Eingebettetes JSON-Objekt, welches Informationen über den Namen der StudentIn beinhaltet.
+
+|`+$.name.salutation+`
+|`+String+`
+|Titel der StudentIn. Dieses Attribut kann der Wert `null` annehmen, wenn kein Titel hinterlegt ist. 
+
+|`+$.name.firstName+`
+|`+String+`
+|Vorname der StudentIn
+
+|`+$.name.lastName+`
+|`+String+`
+|Nachname der StudentIn 
+
+|`+$.seminarGroup+`
+|`+String+`
+|Seminargruppe der StudentIn
+
+|`+$.progression+`
+|`+Objekt+`
+|Eingebettetes JSON-Objekt, das Informationen zum Fortschritt der StudentIn beinhaltet.
+
+|`+$.progression.semester+`
+|`+Integer+`
+|Aktuelles Fachsemester der StudentIn. Der Wert beginnt bei 1.
+
+|`+$.progression.attempts+`
+|`+Feld+`
+|Kollektion aller Prüfungsteilnahmen der StudentIn
+
+|===
