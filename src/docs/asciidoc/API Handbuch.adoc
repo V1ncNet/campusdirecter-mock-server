@@ -6,6 +6,7 @@ Vincent Nadoll <s3003870@ba-sachsen.de>;
 :toc: left
 :toclevels: 4
 :sectlinks:
+:snippets: ./snippets
 
 [[overview]]
 = Einleitung
@@ -76,3 +77,48 @@ möglich einzuhalten.
 | `500 Internal Server Error`
 | Bei der Verbeitung der Anfrage ist ein Fehler aufgetreten, der nicht durch den Inhalt der Anfrage verusacht wurde.
 |===
+
+
+[[auth]]
+= Authentifizierung & Autorisierung
+
+Für gewöhlich sind private oder nutzerrelevante Informationen so gesichert, dass nur der oder die EingentümerIn Zugriff
+auf diesese Informationen bekommt. Dieser Server setzt dabei auf eine konventionelle Authentifizierungsstrategie.
+
+Zur Verifizierung, dass der Client der ist, für den er sich ausgibt, muss er dem Server Nutername und Passwort
+mitteilen. Nur wenn der Server verifizieren kann, dass die Kombination beider Eingaben korrekt ist, ist der Client
+authentifiziert. Der Server erzeugt einen Token und übergibt diesen an den Client.
+
+[[auth-login]]
+== Login
+
+Alle Ressourcen sind so gesichert, dass nur authentifizierte Akteure auf diese zugreifen können. Die
+einzige Ausnahme bildet dabei der Login-Endpunkt.
+
+Der Login-Endpunkt empfängt und verarbeitet Nutername und Passwort. Bei erfolgreichem Login, wird dem Client ein Token
+zurückgesendet, der für weitere Anfragen an den Server verwendet wird.
+
+[[auth-auth]]
+=== Authentifizierung am Server
+
+Um sich gegenüber dem Server zu authentifizieren, wird ein `POST`-Request an den Endpunkt `/login` gesendet. Ist die
+Prüfung erfolgreich, erhält der Client ein JSON-Objekt in dem sich das `token`-Attribut befindet. Dessen Wert ist ein
+JWTfootnote:jwt[JSON Web Token], das vom Client gespeichert werden sollte, um sich bei Zugriff auf Ressourcen zu autorisieren.
+
+include::{snippets}/security/login/response-fields.adoc[]
+
+==== cURL Beispiel
+
+include::{snippets}/security/login/curl-request.adoc[]
+
+==== Request Parameters
+
+include::{snippets}/security/login/request-parameters.adoc[]
+
+==== Response Header
+
+include::{snippets}/security/login/response-headers.adoc[]
+
+==== Response Body
+
+include::{snippets}/security/login/response-body.adoc[]

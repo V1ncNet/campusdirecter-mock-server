@@ -1,0 +1,6 @@
+[source,options="nowrap"]
+----
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiMDgxNTQyMTMzNzQyMCJ9LCJpYXQiOjE2NDkzMjk2MDcsImV4cCI6MTY0OTM1MTIwN30.3iS2AnjFlq022EnXG_OLEGrZZmZMv_5WE-hwI31PMBs"
+}
+----

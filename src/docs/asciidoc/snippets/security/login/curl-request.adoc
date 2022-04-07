@@ -1,0 +1,6 @@
+[source,bash]
+----
+$ curl -X GET 'http://localhost:3000/login' \
+ -H 'Content-Type: application/json' \
+ -d '{"username":"0815421337420","password":"nice"}'
+----
