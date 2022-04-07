@@ -37,12 +37,13 @@ einzuhalten.
 | `GET`
 | Wird zum Abrufen einer Ressource verwendet. Die angeforderten Informationen werden als JSON-Objekt zurückgegeben.
 
+Die vom JSON-Objekt definierten Attribute können verwendet werden, um zusätzliche Anforderungen zu bilden. Jede
+Anfrage, die die `GET`-Methode verwendet, ist schreibgeschützt und wirkt sich nicht auf die abgefragten Objekte aus.
+
 | `POST`
 | Wird verwendet, um Daten an den Server zu senden. Der Typ des Request-Body wird durch den `Content-Type`-Header
 angegeben.
 
-Die vom JSON-Objekt definierten Attribute können verwendet werden, um zusätzliche Anforderungen zu bilden. Jede
-Anfrage, die die `GET`-Methode verwendet, ist schreibgeschützt und wirkt sich nicht auf die abgefragten Objekte aus.
 |===
 
 
