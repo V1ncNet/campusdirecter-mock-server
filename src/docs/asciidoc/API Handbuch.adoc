@@ -4,12 +4,12 @@ Vincent Nadoll <s3003870@ba-sachsen.de>;
 :icons: font
 :source-highlighter: highlightjs
 :toc: left
-:toclevels: 4
+:toclevels: 5
 :sectlinks:
 :snippets: ./snippets
 
 [[overview]]
-= Einleitung
+== Einleitung
 
 Willkommen zum API-Handbuch des Campusdirecter Mock-Server von 4Team.
 
@@ -22,7 +22,7 @@ Technologie, gefolgt von Referenzinformationen zu bestimmten Endpunkten.
 
 
 [[requests]]
-== Anfragen
+=== Anfragen
 
 Jedes Tool, das HTTP beherrscht, kann mit der API kommunizieren, indem es einfach die richtigen URL anfordert. Anfragen
 sollten unter Verwendung des HTTPS-Protokolls gestellt werden, damit der Verkehr verschlüsselt wird. Die Schnittstelle
@@ -48,7 +48,7 @@ angegeben.
 
 
 [[http-statuses]]
-== HTTP Status
+=== HTTP Status
 
 Neben den HTTP-Methoden, auf welche die API reagiert, werden auch Standard-HTTP-Status einschließlich Fehlercodes
 zurückgegeben. Im Falle eines Problems enthält der Status den Fehlercode, während der Hauptteil der Antwort
@@ -81,7 +81,7 @@ möglich einzuhalten.
 
 
 [[auth]]
-= Authentifizierung & Autorisierung
+== Authentifizierung & Autorisierung
 
 Für gewöhlich sind private oder nutzerrelevante Informationen so gesichert, dass nur der oder die EingentümerIn Zugriff
 auf diesese Informationen bekommt. Dieser Server setzt dabei auf eine konventionelle Authentifizierungsstrategie.
@@ -91,7 +91,7 @@ mitteilen. Nur wenn der Server verifizieren kann, dass die Kombination beider Ei
 authentifiziert. Der Server erzeugt einen Token und übergibt diesen an den Client.
 
 [[auth-login]]
-== Login
+=== Login
 
 Alle <<resources,Ressourcen>> sind so gesichert, dass nur authentifizierte Akteure auf diese zugreifen können. Die
 einzige Ausnahme bildet dabei der Login-Endpunkt.
@@ -100,7 +100,7 @@ Der Login-Endpunkt empfängt und verarbeitet Nutername und Passwort. Bei erfolgr
 zurückgesendet, der für weitere Anfragen an den Server verwendet wird.
 
 [[auth-auth]]
-=== Authentifizierung am Server
+==== Authentifizierung am Server
 
 Um sich gegenüber dem Server zu authentifizieren, wird ein `POST`-Request an den Endpunkt `/login` gesendet. Ist die
 Prüfung erfolgreich, erhält der Client ein JSON-Objekt in dem sich das `token`-Attribut befindet. Dessen Wert ist ein
@@ -109,66 +109,66 @@ autorisieren.
 
 include::{snippets}/security/login/response-fields.adoc[]
 
-==== cURL Beispiel
+===== cURL Beispiel
 
 include::{snippets}/security/login/curl-request.adoc[]
 
-==== Request Parameters
+===== Request Parameters
 
 include::{snippets}/security/login/request-parameters.adoc[]
 
-==== Response Headers
+===== Response Headers
 
 include::{snippets}/security/login/response-headers.adoc[]
 
-==== Response Body
+===== Response Body
 
 include::{snippets}/security/login/response-body.adoc[]
 
 [[resources]]
-= Ressourcen
+== Ressourcen
 
 "`Eine Ressource ist alles, was wichtig genug ist, um als eigenständige Sache referenziert zu werden.`"<<RR07,[RR07, Kap. 4, Abs. What’s a Resource?]>>
 
 [[resources-account]]
-== Nutzerkonto
+=== Nutzerkonto
 
 Liefert Informationen zu aktuellen Nutzerkonto.
 
 [[resources-account-retrieve]]
-=== Nutzerinformationen abrufen
+==== Nutzerinformationen abrufen
 
 Im Informationen über den aktuell authentifizierten Client abzufragen, wird der Endpunkt `/me` mittels eines
 `GET`-Requests abgefragt. Dieser liefert ein JSON-Objekt mit den folgenden Attributen.
 
 include::{snippets}/security/me/response-fields.adoc[]
 
-==== cURL Beispiel
+===== cURL Beispiel
 
 include::{snippets}/security/me/curl-request.adoc[]
 
-==== Request Headers
+===== Request Headers
 
 include::{snippets}/security/me/request-headers.adoc[]
 
-==== Response Headers
+===== Response Headers
 
 include::{snippets}/security/me/response-headers.adoc[]
 
-==== Response Body
+===== Response Body
 
 include::{snippets}/security/me/response-body.adoc[]
 
 
 [[resources-student]]
-== Studierende
+=== Studierende
 
 Studierende sind all jene, die diesen Service verwenden werden. Die Endpunkte liefern studienrelevante Informationen,
 anhand derer Studierende ihre Daten einsehen können. Darunter auch die solche, die den Fortschritt der StudentIn
 anzeigen.
 
 [[resources-student-retrieve]]
-=== Eigene Informationen abrufen
+==== Eigene Informationen abrufen
 
 Studierende können ihre sudienrelevanten Informationen abrufen, indem sie den Endpunkt `/student` mit der HTTP Methode
 `GET` abragen.
@@ -177,30 +177,30 @@ Zurückgeliefert wird eine JSON-Objekt, welches die folgenden Attribute enthält
 
 include::{snippets}/student/retrieve/response-fields.adoc[]
 
-==== cURL Beispiel
+===== cURL Beispiel
 
 include::{snippets}/student/retrieve/curl-request.adoc[]
 
-==== Request Headers
+===== Request Headers
 
 include::{snippets}/student/retrieve/request-headers.adoc[]
 
-==== Response Headers
+===== Response Headers
 
 include::{snippets}/student/retrieve/response-headers.adoc[]
 
-==== Response Body
+===== Response Body
 
 include::{snippets}/student/retrieve/response-body.adoc[]
 
 
 [[resources-timetable]]
-== Stundenplan
+=== Stundenplan
 
 Der Stundenplan liefert eine Terminübersicht über alle (verfügbaren) künftigen Veranstaltungen von Studierenden.
 
 [[resources-timetable-retrieve]]
-=== Eigenen Stundenplan abrufen
+==== Eigenen Stundenplan abrufen
 
 Angemeldete Studierende rufen ihren Stundenplan über den Endpunkt `/timetable` mit der HTTP Methode `GET` ab.
 
@@ -208,19 +208,19 @@ Zurückgeliefert wird eine JSON-Objekt, welches die folgenden Attribute enthält
 
 include::{snippets}/timetable/retrieve/response-fields.adoc[]
 
-==== cURL Beispiel
+===== cURL Beispiel
 
 include::{snippets}/timetable/retrieve/curl-request.adoc[]
 
-==== Request Headers
+===== Request Headers
 
 include::{snippets}/timetable/retrieve/request-headers.adoc[]
 
-==== Response Headers
+===== Response Headers
 
 include::{snippets}/timetable/retrieve/response-headers.adoc[]
 
-==== Response Body
+===== Response Body
 
 include::{snippets}/timetable/retrieve/response-body.adoc[]
 
