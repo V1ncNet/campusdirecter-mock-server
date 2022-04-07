@@ -1,5 +1,5 @@
 |===
-|Name|Beschreibung
+|Name|Wert
 
 |`+Authorization+`
 |Bearer $CAMPUSDIRECTER_TOKEN

@@ -1,5 +1,5 @@
 |===
-|Name|Beschreibung
+|Name|Wert
 
 |`+Content-Type+`
 |application/json
