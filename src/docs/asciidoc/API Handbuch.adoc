@@ -68,7 +68,7 @@ möglich einzuhalten.
 | Der Request (-Body) war fehlerhaft. Der Response Body enthält einen Fehler, der weitere Informationen bereitstellt.
 
 | `401 Unauthorized`
-| Der Client ist nicht authentifiziert und darf nicht auf Ressource zuzugreifen.
+| Der Client ist nicht authentifiziert und darf nicht auf die Ressource zuzugreifen.
 
 | `404 Not Found`
 | Die angeforderte Ressource existiert nicht.
