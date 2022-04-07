@@ -103,7 +103,8 @@ zurückgesendet, der für weitere Anfragen an den Server verwendet wird.
 
 Um sich gegenüber dem Server zu authentifizieren, wird ein `POST`-Request an den Endpunkt `/login` gesendet. Ist die
 Prüfung erfolgreich, erhält der Client ein JSON-Objekt in dem sich das `token`-Attribut befindet. Dessen Wert ist ein
-JWTfootnote:jwt[JSON Web Token], das vom Client gespeichert werden sollte, um sich bei Zugriff auf Ressourcen zu autorisieren.
+JWTfootnote:jwt[JSON Web Token], das vom Client gespeichert werden sollte, um sich bei Zugriff auf Ressourcen zu
+autorisieren.
 
 include::{snippets}/security/login/response-fields.adoc[]
 
@@ -115,7 +116,7 @@ include::{snippets}/security/login/curl-request.adoc[]
 
 include::{snippets}/security/login/request-parameters.adoc[]
 
-==== Response Header
+==== Response Headers
 
 include::{snippets}/security/login/response-headers.adoc[]
 
