@@ -1,0 +1,7 @@
+|===
+|Name|Beschreibung
+
+|`+Authorization+`
+|Bearer $CAMPUSDIRECTER_TOKEN
+
+|===

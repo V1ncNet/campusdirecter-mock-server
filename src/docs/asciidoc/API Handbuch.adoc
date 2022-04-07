@@ -194,6 +194,37 @@ include::{snippets}/student/retrieve/response-headers.adoc[]
 include::{snippets}/student/retrieve/response-body.adoc[]
 
 
+[[resources-timetable]]
+== Stundenplan
+
+Der Stundenplan liefert eine Terminübersicht über alle (verfügbaren) künftigen Veranstaltungen von Studierenden.
+
+[[resources-timetable-retrieve]]
+=== Eigenen Stundenplan abrufen
+
+Angemeldete Studierende rufen ihren Stundenplan über den Endpunkt `/timetable` mit der HTTP Methode `GET` ab.
+
+Zurückgeliefert wird eine JSON-Objekt, welches die folgenden Attribute enthält:
+
+include::{snippets}/timetable/retrieve/response-fields.adoc[]
+
+==== cURL Beispiel
+
+include::{snippets}/timetable/retrieve/curl-request.adoc[]
+
+==== Request Headers
+
+include::{snippets}/timetable/retrieve/request-headers.adoc[]
+
+==== Response Headers
+
+include::{snippets}/timetable/retrieve/response-headers.adoc[]
+
+==== Response Body
+
+include::{snippets}/timetable/retrieve/response-body.adoc[]
+
+
 [bibliography]
 = Referenzen
 
