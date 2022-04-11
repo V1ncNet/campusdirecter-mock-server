@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import { FileStudentRepository } from './app/student/infrastructure';
 import { FileTimetableRepository } from './app/timetable/infrastructure';
 import { DummyUserRepository } from './app/security/support';
+import { DocsLocationFactory } from './docs';
 
 export const studentRepository = new FileStudentRepository();
 export const timetableRepository = new FileTimetableRepository();
@@ -29,6 +30,9 @@ Server.create().then(server => {
   if (process.env.NODE_ENV === 'production') {
     server.use(helmet());
   }
+
+  const docs = new DocsLocationFactory();
+  server.app.use('/docs', express.static(docs.create()));
 
   server.start();
 

@@ -1,0 +1,235 @@
+= API Handbuch
+= noop
+CampusDirecter Mock-Server
+:author: Vincent Nadoll <s3003870@ba-sachsen.de>
+:lang: de
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 5
+:toc-title: Inhaltsverzeichnis
+:sectlinks:
+:snippets: ./snippets
+
+[[overview]]
+== Einleitung
+
+Willkommen zum API-Handbuch des Campusdirecter Mock-Server von 4Team.
+
+Mit diesem Service können Studierende auf relevante Informationen, wie ihren Stundenplan, auf einfache und
+programmatische Weise mithilfe herkömmlicher HTTP-Anfragen verwaltet werden. Die Endpoints sind intuitiv und
+leistungsstark, sodass problemlos Requests gemacht werden können, um Informationen abzurufen oder Aktionen auszuführen.
+
+Die API-Dokumentation beginnt mit einem allgemeinen Überblick über das implementierte Design und die implementierte
+Technologie, gefolgt von Referenzinformationen zu bestimmten Endpunkten.
+
+
+[[requests]]
+=== Anfragen
+
+Jedes Tool, das HTTP beherrscht, kann mit der API kommunizieren, indem es einfach die richtigen URL anfordert. Anfragen
+sollten unter Verwendung des HTTPS-Protokolls gestellt werden, damit der Verkehr verschlüsselt wird. Die Schnittstelle
+reagiert je nach erforderlicher Aktion auf unterschiedliche Methoden.
+
+Dieser Dienst versucht, bei der Verwendung von HTTP-Verben die Standard-HTTP- und REST-Konventionen so genau wie möglich
+einzuhalten.
+
+|===
+| Verb | Verwendung
+
+| `GET`
+| Wird zum Abrufen einer Ressource verwendet. Die angeforderten Informationen werden als JSON-Objekt zurückgegeben.
+
+Die vom JSON-Objekt definierten Attribute können verwendet werden, um zusätzliche Anforderungen zu bilden. Jede
+Anfrage, die die `GET`-Methode verwendet, ist schreibgeschützt und wirkt sich nicht auf die abgefragten Objekte aus.
+
+| `POST`
+| Wird verwendet, um Daten an den Server zu senden. Der Typ des Request-Body wird durch den `Content-Type`-Header
+angegeben.
+
+|===
+
+
+[[http-statuses]]
+=== HTTP Status
+
+Neben den HTTP-Methoden, auf welche die API reagiert, werden auch Standard-HTTP-Status einschließlich Fehlercodes
+zurückgegeben. Im Falle eines Problems enthält der Status den Fehlercode, während der Hauptteil der Antwort
+normalerweise zusätzliche Informationen zu dem aufgetretenen Problem enthält. Wird ein Status im 500er-Bereich
+zurückgesendet, weist dies im Allgemeinen auf ein serverseitiges Problem hin. Dies bedeutet, dass der Dienst ein Problem
+hat und die Anfrage derzeit nicht erfüllen kann. Aus Sicherheitsgründen enthält ein 500er-Fehler keine aussagekräftige
+Beschreibung des Problems.
+
+Dieser Dienst versucht, die Standardkonventionen für HTTP und REST bei der Verwendung des HTTP-Statuscodes so genau wie
+möglich einzuhalten.
+
+|===
+| Status Code | Bedeutung
+
+| `200 OK`
+| Der Request war erfolgreich.
+
+| `400 Bad Request`
+| Der Request (-Body) war fehlerhaft. Der Response Body enthält einen Fehler, der weitere Informationen bereitstellt.
+
+| `401 Unauthorized`
+| Der Client ist nicht authentifiziert und darf nicht auf die Ressource zuzugreifen.
+
+| `404 Not Found`
+| Die angeforderte Ressource existiert nicht.
+
+| `500 Internal Server Error`
+| Bei der Verbeitung der Anfrage ist ein Fehler aufgetreten, der nicht durch den Inhalt der Anfrage verusacht wurde.
+|===
+
+
+[[auth]]
+== Authentifizierung & Autorisierung
+
+Für gewöhlich sind private oder nutzerrelevante Informationen so gesichert, dass nur der oder die EingentümerIn Zugriff
+auf diesese Informationen bekommt. Dieser Server setzt dabei auf eine konventionelle Authentifizierungsstrategie.
+
+Zur Verifizierung, dass der Client der ist, für den er sich ausgibt, muss er dem Server Nutername und Passwort
+mitteilen. Nur wenn der Server verifizieren kann, dass die Kombination beider Eingaben korrekt ist, ist der Client
+authentifiziert. Der Server erzeugt einen Token und übergibt diesen an den Client.
+
+[[auth-login]]
+=== Login
+
+Alle <<resources,Ressourcen>> sind so gesichert, dass nur authentifizierte Akteure auf diese zugreifen können. Die
+einzige Ausnahme bildet dabei der Login-Endpunkt.
+
+Der Login-Endpunkt empfängt und verarbeitet Nutername und Passwort. Bei erfolgreichem Login, wird dem Client ein Token
+zurückgesendet, der für weitere Anfragen an den Server verwendet wird.
+
+[[auth-auth]]
+==== Authentifizierung am Server
+
+Um sich gegenüber dem Server zu authentifizieren, wird ein `POST`-Request an den Endpunkt `/login` gesendet. Ist die
+Prüfung erfolgreich, erhält der Client ein JSON-Objekt in dem sich das `token`-Attribut befindet. Dessen Wert ist ein
+JWTfootnote:jwt[JSON Web Token], das vom Client gespeichert werden sollte, um sich bei Zugriff auf Ressourcen zu
+autorisieren.
+
+include::{snippets}/security/login/response-fields.adoc[]
+
+===== cURL Beispiel
+
+include::{snippets}/security/login/curl-request.adoc[]
+
+===== Request Parameters
+
+include::{snippets}/security/login/request-parameters.adoc[]
+
+===== Response Headers
+
+include::{snippets}/security/login/response-headers.adoc[]
+
+===== Response Body
+
+include::{snippets}/security/login/response-body.adoc[]
+
+[[resources]]
+== Ressourcen
+
+"`Eine Ressource ist alles, was wichtig genug ist, um als eigenständige Sache referenziert zu werden.`"<<RR07,[RR07, Kap. 4, Abs. What’s a Resource?]>>
+
+[[resources-account]]
+=== Nutzerkonto
+
+Liefert Informationen zu aktuellen Nutzerkonto.
+
+[[resources-account-retrieve]]
+==== Nutzerinformationen abrufen
+
+Im Informationen über den aktuell authentifizierten Client abzufragen, wird der Endpunkt `/me` mittels eines
+`GET`-Requests abgefragt. Dieser liefert ein JSON-Objekt mit den folgenden Attributen.
+
+include::{snippets}/security/me/response-fields.adoc[]
+
+===== cURL Beispiel
+
+include::{snippets}/security/me/curl-request.adoc[]
+
+===== Request Headers
+
+include::{snippets}/security/me/request-headers.adoc[]
+
+===== Response Headers
+
+include::{snippets}/security/me/response-headers.adoc[]
+
+===== Response Body
+
+include::{snippets}/security/me/response-body.adoc[]
+
+
+[[resources-student]]
+=== Studierende
+
+Studierende sind all jene, die diesen Service verwenden werden. Die Endpunkte liefern studienrelevante Informationen,
+anhand derer Studierende ihre Daten einsehen können. Darunter auch die solche, die den Fortschritt der StudentIn
+anzeigen.
+
+[[resources-student-retrieve]]
+==== Eigene Informationen abrufen
+
+Studierende können ihre sudienrelevanten Informationen abrufen, indem sie den Endpunkt `/student` mit der HTTP Methode
+`GET` abragen.
+
+Zurückgeliefert wird eine JSON-Objekt, welches die folgenden Attribute enthält:
+
+include::{snippets}/student/retrieve/response-fields.adoc[]
+
+===== cURL Beispiel
+
+include::{snippets}/student/retrieve/curl-request.adoc[]
+
+===== Request Headers
+
+include::{snippets}/student/retrieve/request-headers.adoc[]
+
+===== Response Headers
+
+include::{snippets}/student/retrieve/response-headers.adoc[]
+
+===== Response Body
+
+include::{snippets}/student/retrieve/response-body.adoc[]
+
+
+[[resources-timetable]]
+=== Stundenplan
+
+Der Stundenplan liefert eine Terminübersicht über alle (verfügbaren) künftigen Veranstaltungen von Studierenden.
+
+[[resources-timetable-retrieve]]
+==== Eigenen Stundenplan abrufen
+
+Angemeldete Studierende rufen ihren Stundenplan über den Endpunkt `/timetable` mit der HTTP Methode `GET` ab.
+
+Zurückgeliefert wird eine JSON-Objekt, welches die folgenden Attribute enthält:
+
+include::{snippets}/timetable/retrieve/response-fields.adoc[]
+
+===== cURL Beispiel
+
+include::{snippets}/timetable/retrieve/curl-request.adoc[]
+
+===== Request Headers
+
+include::{snippets}/timetable/retrieve/request-headers.adoc[]
+
+===== Response Headers
+
+include::{snippets}/timetable/retrieve/response-headers.adoc[]
+
+===== Response Body
+
+include::{snippets}/timetable/retrieve/response-body.adoc[]
+
+
+[bibliography]
+= Referenzen
+
+* [[[RR07]]] Richardson, L. ; Ruby, S.: __RESTful Web Services by Leonard Richardson__. O'Reilly & Associates, 2007. - ISBN 978-0596529260

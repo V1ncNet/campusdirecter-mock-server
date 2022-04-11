@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
+    "build:docs": "asciidoctor  -D ./dist/docs -o index.html ./src/docs/asciidoc/API\\ Handbuch.adoc",
     "start": "node dist/index.js",
     "dev": "nodemon",
     "lint": "eslint"
@@ -28,6 +29,7 @@
     "@types/node": "^17.0.18",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
+    "asciidoctor": "^2.2.6",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.4.0",
     "nodemon": "^2.0.15",
@@ -41,6 +43,7 @@
     ],
     "ext": "js, ts, json",
     "ignore": [
+      "src/docs/asciidoc/",
       "src/**/*.spec.ts"
     ],
     "exec": "ts-node ./src/index.ts"

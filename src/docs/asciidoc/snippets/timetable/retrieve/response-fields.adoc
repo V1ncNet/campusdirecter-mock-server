@@ -1,0 +1,71 @@
+|===
+|Pfad|Typ|Beschreibung
+
+|`+$.id+`
+|`+String+`
+|Primäre ID des Studendenplans. Dieser Wert ist einzigartig.
+
+|`+$.summary+`
+|`+String+`
+|Kurze Beschreibung des Stundenplans
+
+|`+$.owner+`
+|`+Objekt+`
+|Eingebettetes JSON-Objekt, welches Informationen über die EigentümerIn beinhaltet. Dies sind die gleichen Attribute,
+wie sie auch durch die <<resources-student-retrieve,Studenierende>>-Ressource bereitgestellt werden.
+
+|`+$.lectures+`
+|`+Feld+`
+|Kollektion aller zukünftigen Veranstaltungen.
+
+|`+$.lectures[].summary+`
+|`+String+`
+|Kurze Beschreibung der Veranstaltung
+
+|`+$.lectures[].lecturer+`
+|`+Objekt+`
+|Eingebettetes JSON-Objekt, das Informationen über die Dozentin oder den Dozenten beinhaltet.
+
+|`+$.lectures[].lecturer.id+`
+|`+String+`
+|Primäre ID des Dezenten / der Dozentin. Dieser Wert ist einzigartig.
+
+|`+$.lectures[].lecturer.name+`
+|`+Objekt+`
+|Eingebettetes JSON-Object, das Informationen über den Namen der Dozenzing / des Dozenten beinhaltet.
+
+|`+$.lectures[].lecturer.name.salutation+`
+|`+String+`
+|Title der Person. Dieses Attribut kann den Wert `null` annehmen, wenn kein Titel hinterlegt wurde.
+
+|`+$.lectures[].lecturer.name.firstName+`
+|`+String+`
+|Vorname der Person
+
+|`+$.lectures[].lecturer.name.lastName+`
+|`+String+`
+|Nachname der Person
+
+|`+$.lectures[].interval+`
+|`+Objekt+`
+|JSON-Objekt, das den Zeitraum der Veranstatung zusammenfässt
+
+|`+$.lectures[].interval.start+`
+|`+String+`
+|Startzeitpunkt der Veranstaltung. Dieser Wert erfüllt den ISO 8601 Standard. Außerdem wird dem Wert ein
+Zeitzonen-Offset, sowie die Zonen-ID angehangen, um einfache Umrechnungen in andere Zeitzonen zu ermöglichen.
+
+Bsp.: `+2022-04-25T11:45:00.000+02:00[Europe/Berlin]+`
+
+|`+$.lectures[].interval.duration+`
+|`+String+`
+|Dauer der Veranstaltung. Dieser Wert erfüllt den ISO 8601 Standard **nicht**. Stattdessen wird dieser Wert im
+konventionell lesbaren Format ausgeliefert. 
+
+Bsp.: `+90m+` (gesprochen 90 Minuten)
+
+|`+$.lectures[].location+`
+|`+String+`
+|Ort der Veranstaltung.
+
+|===

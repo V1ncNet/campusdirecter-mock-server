@@ -1,0 +1,8 @@
+|===
+|Pfad|Typ|Beschreibung
+
+|`+$.token+`
+|`+String+`
+|Der JWTfootnote:jwt[], welcher zur Authorisierung anderer Ressourcen verwendet wird.
+
+|===

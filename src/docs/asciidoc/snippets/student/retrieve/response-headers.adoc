@@ -1,0 +1,10 @@
+|===
+|Name|Wert
+
+|`+Content-Type+`
+|application/json
+
+|`+Status+`
+|200 OK
+
+|===

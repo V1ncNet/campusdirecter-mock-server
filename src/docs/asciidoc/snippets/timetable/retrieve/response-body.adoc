@@ -1,0 +1,42 @@
+[source,options="nowrap"]
+----
+{
+  "timetables": [
+    {
+      "id": "9bfb4d8f-d9e8-4252-87bc-cc10077ad588",
+      "summary": "6th Semester's Timetable",
+      "owner": {
+        "id": "0815421337420",
+        "name": {
+          "salutation": null,
+          "fistName": "Max",
+          "lastName": "Mustermann"
+        },
+        "seminarGroup": "3MI19-1",
+        "progression": {
+          "semester": 6,
+          "attempts": []
+        }
+      },
+      "lectures": [
+        {
+          "summary": "PROMA",
+          "lecturer": {
+            "id": "f7dc050b-c72d-43b8-b931-cc85b431b5f9",
+            "name": {
+              "salutation": null,
+              "firstName": "Sigmund",
+              "lastName": "Rudi"
+            }
+          },
+          "interval": {
+            "start": "2022-04-25T07:45:00.000+01:00[Europe/Berlin]",
+            "duration": "90m"
+          },
+          "location": "https://zoom.us/1337"
+        }
+      ]
+    }
+  ]
+}
+----

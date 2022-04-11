@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+include::../../../../../../data/student.json[]
+----

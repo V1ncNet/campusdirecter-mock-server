@@ -1,0 +1,10 @@
+|===
+|Parameter|Beschreibung
+
+|`+username+`
+|Nutzername des zu authentifizierenden Akteurs
+
+|`+password+`
+|Passwort des zu authentifizierenden Akteurs
+
+|===
