@@ -32,7 +32,7 @@ Jedes Tool, das HTTP beherrscht, kann mit der API kommunizieren, indem es einfac
 sollten unter Verwendung des HTTPS-Protokolls gestellt werden, damit der Verkehr verschlüsselt wird. Die Schnittstelle
 reagiert je nach erforderlicher Aktion auf unterschiedliche Methoden.
 
-Dieser Dienst versucht, bei der Verwendung von HTTP-Verben die Standard-HTTP- und REST-Konventionen so genau wie möglich
+Dieser Dienst versucht bei der Verwendung von HTTP-Verben die Standard-HTTP- und REST-Konventionen so genau wie möglich
 einzuhalten.
 
 |===
@@ -61,7 +61,7 @@ zurückgesendet, weist dies im Allgemeinen auf ein serverseitiges Problem hin. D
 hat und die Anfrage derzeit nicht erfüllen kann. Aus Sicherheitsgründen enthält ein 500er-Fehler keine aussagekräftige
 Beschreibung des Problems.
 
-Dieser Dienst versucht, die Standardkonventionen für HTTP und REST bei der Verwendung des HTTP-Statuscodes so genau wie
+Dieser Dienst versucht die Standardkonventionen für HTTP und REST bei der Verwendung des HTTP-Statuscodes so genau wie
 möglich einzuhalten.
 
 |===
@@ -85,12 +85,12 @@ möglich einzuhalten.
 
 
 [[auth]]
-== Authentifizierung & Autorisierung
+== Authentifizierung und Autorisierung
 
 Für gewöhlich sind private oder nutzerrelevante Informationen so gesichert, dass nur der oder die EingentümerIn Zugriff
-auf diesese Informationen bekommt. Dieser Server setzt dabei auf eine konventionelle Authentifizierungsstrategie.
+auf diese Informationen bekommt. Dieser Server setzt dabei auf eine konventionelle Authentifizierungsstrategie.
 
-Zur Verifizierung, dass der Client der ist, für den er sich ausgibt, muss er dem Server Nutername und Passwort
+Zur Verifizierung, dass der Client der ist, für den er sich ausgibt, muss er dem Server Nutzername und Passwort
 mitteilen. Nur wenn der Server verifizieren kann, dass die Kombination beider Eingaben korrekt ist, ist der Client
 authentifiziert. Der Server erzeugt einen Token und übergibt diesen an den Client.
 
@@ -107,7 +107,7 @@ zurückgesendet, der für weitere Anfragen an den Server verwendet wird.
 ==== Authentifizierung am Server
 
 Um sich gegenüber dem Server zu authentifizieren, wird ein `POST`-Request an den Endpunkt `/login` gesendet. Ist die
-Prüfung erfolgreich, erhält der Client ein JSON-Objekt in dem sich das `token`-Attribut befindet. Dessen Wert ist ein
+Prüfung erfolgreich, erhält der Client ein JSON-Objekt, in dem sich das `token`-Attribut befindet. Dessen Wert ist ein
 JWTfootnote:jwt[JSON Web Token], das vom Client gespeichert werden sollte, um sich bei Zugriff auf Ressourcen zu
 autorisieren.
 
@@ -137,12 +137,12 @@ include::{snippets}/security/login/response-body.adoc[]
 [[resources-account]]
 === Nutzerkonto
 
-Liefert Informationen zu aktuellen Nutzerkonto.
+Die Ressource Nutzerkonto liefert Informationen zum aktuellen Nutzer.
 
 [[resources-account-retrieve]]
 ==== Nutzerinformationen abrufen
 
-Im Informationen über den aktuell authentifizierten Client abzufragen, wird der Endpunkt `/me` mittels eines
+Um Informationen über den aktuell authentifizierten Client abzufragen, wird der Endpunkt `/me` mittels eines
 `GET`-Requests abgefragt. Dieser liefert ein JSON-Objekt mit den folgenden Attributen.
 
 include::{snippets}/security/me/response-fields.adoc[]
@@ -175,7 +175,7 @@ anzeigen.
 ==== Eigene Informationen abrufen
 
 Studierende können ihre sudienrelevanten Informationen abrufen, indem sie den Endpunkt `/student` mit der HTTP Methode
-`GET` abragen.
+`GET` abfragen.
 
 Zurückgeliefert wird eine JSON-Objekt, welches die folgenden Attribute enthält:
 

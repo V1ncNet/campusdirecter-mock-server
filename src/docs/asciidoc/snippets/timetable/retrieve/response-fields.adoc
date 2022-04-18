@@ -48,7 +48,7 @@ wie sie auch durch die <<resources-student-retrieve,Studenierende>>-Ressource be
 
 |`+$.lectures[].interval+`
 |`+Objekt+`
-|JSON-Objekt, das den Zeitraum der Veranstatung zusammenfässt
+|JSON-Objekt, das den Zeitraum der Veranstatung zusammenfasst
 
 |`+$.lectures[].interval.start+`
 |`+String+`
@@ -66,6 +66,6 @@ Bsp.: `+90m+` (gesprochen 90 Minuten)
 
 |`+$.lectures[].location+`
 |`+String+`
-|Ort der Veranstaltung.
+|Ort der Veranstaltung
 
 |===
